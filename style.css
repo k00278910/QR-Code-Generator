@@ -1,0 +1,14 @@
+body {
+  background-color: #f5f2ea;
+  padding: 0 2rem;
+}
+
+h1 {
+  border-bottom: 1px solid grey;
+  /* ensure that bottom border does not cover entire page horizontally */
+  display: inline-block;
+  /* 1 rem 16px by default (browser settings).   */
+  /* rem for bigger padding measurements */
+  padding-right: 2rem;
+  padding-bottom: 0.5rem;
+}
