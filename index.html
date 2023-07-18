@@ -1,6 +1,8 @@
 <!-- https://www.youtube.com/watch?v=_RfVj2CHHqc -->
 <!-- https://goqr.me/api/doc/create-qr-code/#param -->
 <!-- HTML, CSS, JAVASCRIPT BEGINNER’S PROJECT, Code along REST API projects -->
+
+<!-- QR Code Generator Project 17/07/2023 -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -10,53 +12,156 @@
     <link rel="icon" href="favicon.ico" />
     <title>QR Code Generator API Challenge</title>
 
-    <!-- clear default settings of browsers -->
-    <!-- ensure a unified style through browsers -->
-    <link href="https://unpkg.com/sanitize.css" rel="stylesheet" />
-    <link rel="stylesheet" href="style.css" />
-   
-  <body>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kanit:wght@700&family=Work+Sans:wght@200;400;500&display=swap"
+      rel="stylesheet"
+    />
 
-    <!-- add js link to end of body -->
+    <!-- clean up for different browsers -->
+    <link href="https://unpkg.com/sanitize.css" rel="stylesheet" />
+    <link href="style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <h1 class="heading">QR code</h1>
+    <main>
+      <section id="qr-code-settings" class="container container-front">
+        <header>
+          <h2>Generate your QR code</h2>
+          <h3>Adjust your settings to make your QR code look as you want</h3>
+        </header>
+
+        <!-- div for input fields & labels elements-->
+        <div>
+          <div class="setting">
+            <label for="data">Text/URL</label>
+            <span class="sub-label"
+              >Include the text or URL that you want the QR code to lead
+              to</span
+            >
+            <!-- for works with the id -->
+            <input type="text" name="data" id="data" min="1" max="900" />
+          </div>
+
+          <!-- add color icons to the container -->
+          <div class="colors">
+            <div class="setting">
+              <label for="color">Main Color</label>
+              <input type="color" id="color" value="#000000" />
+              <!-- create span to display the color icons -->
+              <span id="color-value">#000000</span>
+            </div>
+
+            <div class="setting">
+              <label for="bg-color">Background Color</label>
+              <input type="color" id="bg-color" value="#c7c7c7" />
+              <!-- create span to display the color icons -->
+              <span id="bg-color-value">#c7c7c7</span>
+            </div>
+          </div>
+          <!-- end colors div -->
+
+          <div class="setting">
+            <label for="size">Size</label>
+            <span id="size-value" class="sub-label">200 x 200</span>
+            <div class="slider">
+              <input
+                name="size"
+                id="size"
+                type="range"
+                value="200"
+                min="100"
+                max="1000"
+                step="100"
+              />
+            </div>
+          </div>
+
+          <div class="setting">
+            <label for="margin">Margin</label>
+            <span id="margin-value" class="sub-label">1px</span>
+            <div class="slider">
+              <input
+                name="margin"
+                id="margin"
+                type="range"
+                value="1"
+                min="0"
+                max="1000"
+                step="1"
+              />
+            </div>
+          </div>
+
+          <!-- find the different formats to include in fieldset from doc 3.10 -->
+          <div class="setting">
+            <fieldset>
+              <legend>Image Format</legend>
+              <div>
+                <input
+                  type="radio"
+                  name="format"
+                  id="png"
+                  value="png"
+                  checked
+                />
+                <label for="png">PNG</label>
+              </div>
+              <div>
+                <input
+                  type="radio"
+                  name="format"
+                  id="gif"
+                  value="gif"
+                  checked
+                />
+                <label for="gif">GIF</label>
+              </div>
+              <div>
+                <input
+                  type="radio"
+                  name="format"
+                  id="jpeg"
+                  value="jpeg"
+                  checked
+                />
+                <label for="jpeg">JPEG</label>
+              </div>
+              <div>
+                <input
+                  type="radio"
+                  name="format"
+                  id="jpg"
+                  value="jpg"
+                  checked
+                />
+                <label for="jpg">JPG</label>
+              </div>
+              <div>
+                <input
+                  type="radio"
+                  name="format"
+                  id="svg"
+                  value="svg"
+                  checked
+                />
+                <label for="svg">SVG</label>
+              </div>
+            </fieldset>
+          </div>
+          <!-- end fieldset div -->
+          <!-- cta submit button -->
+          <div class="cta">
+            <button id="cta" type="submit">Generate QR code</button>
+          </div>
+        </div>
+        <!-- end overall container div -->
+      </section>
+    </main>
+
+    <!-- add js link  -->
     <script src="script.js"></script>
   </body>
-</html>
-<!-- QR Code Generator Project 17/07/2023 -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="favicon.ico" />
-  <title>QR Code Generator API Challenge</title>
-  <!-- clean up for different browsers -->
-  <link href="https://unpkg.com/sanitize.css" rel="stylesheet" />
-  <link href="style.css" rel="stylesheet" />
-</head>
-<body>
-  <script src="script.js"></script>
-  <h1>QR code</h1>
-  <main>
-    <section id="qr-code-settings" class="container container-front">
-      <header>
-        <h2>Generate your QR code</h2>
-        <h3>Adjust your settings to make your QR code look as you want</h3>
-      </header>
-
-      <!-- div for input fields & labels elements-->
-      <div>
-        <div class="setting">
-          <label for="data">Text/URL</label>
-          <span>Include the text or URL that you want the QR code to lead to</span>
-          <input type="text" name="data" id="data" min="1" max="900" >
-
-        </div>
-        
-
-      </div>
-
-    </section>
-  </main>
-</body>
 </html>

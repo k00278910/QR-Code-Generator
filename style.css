@@ -23,6 +23,7 @@ main {
   justify-content: center;
   /* y axis */
   align-items: center;
+
   /* enable the flipping of the card */
   -webkit-perspective: 150rem;
   perspective: 150rem;
@@ -45,6 +46,8 @@ main {
   width: 50%;
   /* container height cannot go lower than 700px */
   min-height: 700px;
+  /* provide whitespace inside container (l & r) */
+  padding: 0 2rem;
 }
 
 .container header {
@@ -53,7 +56,7 @@ main {
   align-items: center;
   flex-direction: column;
 }
-
+/* space and weight h2 text */
 .container header h2 {
   margin-bottom: 0.2rem;
   font-weight: 500;
@@ -69,26 +72,209 @@ main {
 
 /* input fields settings */
 .setting {
+  /* provides space around (all sides) setting container */
   margin: 1rem;
   display: flex;
+  /* sets input box display */
   flex-direction: column;
 }
-
+/* styling class sub label */
+.sub-label {
+  font-size: 0.9rem;
+  font-weight: 200;
+}
+/* text field display settings */
 input[type="text"] {
   border: 1px solid #000000;
+  /* padding inside text field */
   padding: 0.35rem 0.85rem 0.35rem 0.4rem;
   line-height: 1.2rem;
   font-size: 1rem;
   font-weight: 200;
   border-radius: 0.3rem;
+  /* font must be redifined for input text */
   font-family: "Work Sans", sans-serif;
 }
+/* Change focus (accessibility & navigation of site) */
+/* when you click on the input field, its state is on focus */
 input[type="text"]:focus {
   outline: none;
   border: 1px solid #dea764;
 }
 /* changes colour of input box once selected */
 input[type="text"]:focus {
+  /* remove default outline */
   outline: none;
+  /* focus colour */
   border: 1px solid #dea764;
+}
+.colors {
+  /* put icons side by side */
+  display: flex;
+  /* put space around elements */
+  justify-content: space-around;
+}
+/* style box color icons */
+/* setting (parent) already set to display flex */
+.colors .setting {
+  /* align items & text */
+  align-items: center;
+  text-align: center;
+}
+/* reduce font size #000000 & #c7c7c7 */
+.colors .setting span {
+  font-size: 0.9rem;
+  font-weight: 200;
+}
+/*  Change the box color icons appearance*/
+input[type="color"] {
+  /* remove default appearance (this is a standard prefix) */
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid #000000;
+  height: 50px;
+  width: 50px;
+  padding: 0.2rem;
+  /* change cursor appearance on hover */
+  cursor: pointer;
+}
+/* set color icon option on focus */
+input[type="color"]:focus {
+  outline: none;
+  border: 2px solid #dea764;
+  border-radius: 2px;
+}
+
+/* Browser specific code (source:danascript github) */
+/* Takes care of different browser behaviours */
+::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+::-webkit-color-swatch {
+  border: 0;
+}
+
+::-moz-color-swatch {
+  border: 1px solid #000000;
+}
+/* Style the slider */
+input[type="range"] {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+  height: 5px;
+  border-radius: 3px;
+  background: #d9d9d9;
+  outline: none;
+  padding: 0;
+  margin: 0;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #fdc886;
+  cursor: pointer;
+  -webkit-transition: background 0.15s ease-in-out;
+  transition: background 0.15s ease-in-out;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  background: #dea764;
+}
+input[type="range"]:active::-webkit-slider-thumb {
+  background: #dea764;
+}
+
+/* Browser code default */
+/* ---------------------- */
+input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border: 0;
+  border-radius: 50%;
+  background: #fdc886;
+  cursor: pointer;
+  -moz-transition: background 0.15s ease-in-out;
+  transition: background 0.15s ease-in-out;
+}
+input[type="range"]::-moz-range-thumb:hover {
+  background: #dea764;
+}
+input[type="range"]:active::-moz-range-thumb {
+  background: #dea764;
+}
+input[type="range"]:focus::-webkit-slider-thumb {
+  box-shadow: 0 0 0 3px #fff, 0 0 0 5px #dea764;
+}
+::-moz-range-track {
+  background: #d7dcdf;
+  border: 0;
+}
+
+input::-moz-focus-inner,
+input::-moz-focus-outer {
+  border: 0;
+}
+/* ---------------------- */
+/* Style the Radio Buttons */
+input[type="radio"] {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  padding: 2px;
+  /* determines the background painting area */
+  background-clip: content-box;
+  border: 1px solid #fdc886;
+  background-color: #ffffff;
+  border-radius: 50%;
+}
+input[type="radio"]:checked {
+  background-color: #fdc886;
+}
+input[type="radio"]:focus {
+  outline: none;
+  border: 2px solid #dea764;
+  background-color: #dea764;
+}
+fieldset {
+  display: flex;
+  flex-wrap: wrap;
+  border: none;
+  padding: 0;
+  margin: 0;
+  justify-content: space-between;
+}
+fieldset legend {
+  margin-bottom: 0.5rem;
+}
+fieldset div {
+  border: 1px solid #000000;
+  border-radius: 0.3rem;
+  display: flex;
+  align-items: center;
+  padding: 0.25rem 0.5rem;
+  margin-right: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+/* remove margin right from svg option */
+fieldset div:last-child {
+  margin-right: 0;
+}
+/* add space between check dot and text */
+fieldset div input {
+  margin-right: 0.5rem;
+  cursor: pointer;
+}
+fieldset div label {
+  cursor: pointer;
 }
