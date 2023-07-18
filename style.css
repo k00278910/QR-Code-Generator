@@ -278,3 +278,40 @@ fieldset div input {
 fieldset div label {
   cursor: pointer;
 }
+button {
+  background-color: #fdc886;
+  padding: 0.5rem 1.2rem;
+  font-size: 1.1rem;
+  font-family: "Work Sans", sans-serif;
+  font-weight: 500;
+  border-radius: 0.3rem;
+  margin: 0.5rem auto 1.5rem;
+  border: 2px solid #fdc886;
+  border-radius: 0.5rem;
+  line-height: 1.1rem;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+}
+button:hover {
+  transition: all 0.15s ease-in-out;
+  transform: translateY(-0.2rem);
+}
+button:active {
+  background-color: #dea764;
+  transition: all 0.15s ease-in-out;
+  border: 2px solid #dea764;
+}
+button:focus {
+  outline: none;
+  border: 2px solid #dea764;
+}
+button:disabled {
+  outline: none;
+  transition: none;
+  transform: none;
+  cursor: not-allowed;
+}
+/* need this to centre button */
+.cta {
+  display: flex;
+}
